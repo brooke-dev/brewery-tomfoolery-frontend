@@ -2,38 +2,48 @@ import React, {useState, useEffect} from 'react';
 
 const Login = ({setToken, setUser, setCurrentId}) => {
     const [users, setUsers] = useState([])
-    const [formData, setForm] = useState("")
+    const [formData, setForm] = useState("")                                                                                                                                    
 
     useEffect(() => {
-        fetch("http://localhost:9292/api/users")
-        .then((res) => res.json())
-        .then(data => {setUsers(data)})
+        fetch(`http://localhost:9292/api/users`)
+        .then(res => res.json())
+        .then(data => {
+          setUsers(data)
+        })
         .catch(console.error)
-    }, [])
-
+      }, [])
+   
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('first pull', users)
         const usersLowerCase = users.map(element => element.username.toLowerCase())
         // console.log(users.find(element => element.username.toLowerCase() === formData.toLowerCase()))
         // console.log(usersLowerCase.includes(formData.toLowerCase())) //returns true or false
         if (usersLowerCase.includes(formData.toLowerCase())) {
             setCurrentId(users.find(element => element.username.toLowerCase() === formData.toLowerCase()).id)
             setUser(formData)
+            console.log(formData)
         } 
-        // else {
-        //     fetch("http://localhost:9292/api/users", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(formData)
-        //     })
-        //     .then((res) => res.json())
-        //     .catch(err => console.error(err))
+        else {
+            fetch(`http://localhost:9292/api/users/${formData}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({username: formData})
+            })
+            .then((res) => res.json())
+            .then(data => {
+                setCurrentId(data.id)
+                setUser(formData)
+            })
+            .catch(err => console.error(err))
 
-        //     setCurrentId(users.find(element => element.username.toLowerCase() === formData.toLowerCase()).id)
-        //     setUser(formData)
-        // }
+
+            console.log('second pull', users)
+            // setCurrentId(users.find(element => element.username.toLowerCase() === formData.toLowerCase()).id)
+            // setUser(formData)
+        }
         setToken(true);
     }
 

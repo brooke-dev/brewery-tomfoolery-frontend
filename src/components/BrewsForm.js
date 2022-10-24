@@ -6,17 +6,14 @@ const initialState={
     location: "",
     description: "",
 }
-const BrewsForm = () => {
+const BrewsForm = ({id}) => {
     //set state
     const[formData, setFormData] = useState(initialState);
-    //destructuring form data
-    // const { name, image_url, location, description} = formData;
 
     //handle user input into each form field and set state based on input
     const handleOnChange = (e) => {
         const { name, value } = e.target; 
         //update form state w/ new values entered into the input fields
-        //make a copy of formData w/ spread, add on the ([name]: value) entered
         setFormData(formData => {
           return {
             ...formData,
@@ -27,9 +24,8 @@ const BrewsForm = () => {
       //POST REQUEST to submit new brewery
     const handleBrewSubmit = (e) => {
         e.preventDefault();
-        // console.log(formData)
-        // console.log(JSON.stringify(formData))
-        fetch("http://localhost:9292/api/entries", {
+        
+        fetch(`http://localhost:9292/api/entries/user/${id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -40,14 +36,13 @@ const BrewsForm = () => {
         .then(
             //reset form state
             setFormData(initialState)
-            //Will NEED TO ADD TO BREW LIST in front-end AND UPDATE THAT STATE & re-fetch GET from db w/ updated brew list
         )
         .catch(err => console.error(err))
     }
 
     return (
         <div className='brew-form-container'>
-            <h1>Add a new Brewery</h1>
+            <h2>Add a new Brewery</h2>
             <form className="brew-form" autoComplete='off' onSubmit={handleBrewSubmit}>
                 <label>Brewery Name:</label>
                 <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange}/>
