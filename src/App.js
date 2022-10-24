@@ -7,7 +7,7 @@ import Login from './components/Login';
 import FavoriteBrews from './components/FavoritesFolder/FavoriteBrews';
 import {Route, Switch} from 'react-router-dom';
 import React,{useState,useEffect} from 'react'
-import BrewsList from './components/MyBrewsFolder/BrewsList';
+// import BrewsList from './components/MyBrewsFolder/BrewsList';
 import Search from './components/Search';
 
 function App() {
@@ -18,10 +18,10 @@ function App() {
   const [search, setSearch]=useState("")
 
   useEffect(()=>{
-    fetch("http://localhost:9292/api/entries/user/4")
+    fetch(`http://localhost:9292/api/entries/user/${currentId}`)
     .then((res) =>res.json())
     .then(setMyBrewsCards)
-  },[])
+  },[currentId])
 
     //Search bar logic for myBrews. Will need to make a filter for Favorites 
 
