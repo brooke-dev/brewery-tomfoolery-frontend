@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MyBrews = () => {
+const MyBrews = ({id}) => {
     return (
         <div className='brews-container'>
-            <h1>MyBrews</h1>
+            <h1>My Brews</h1>
         </div>
 
     )
