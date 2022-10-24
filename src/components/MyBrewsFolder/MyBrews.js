@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BrewsList from'./BrewsList'
 
-const MyBrews = () => {
+const MyBrews = ({filterMyBrewsCards}) => {
     return (
         <div className='brews-container'>
-            <h1>MyBrews</h1>
+            <h1>My Brews</h1>
+            <BrewsList filterMyBrewsCards={filterMyBrewsCards}/>
         </div>
 
     )

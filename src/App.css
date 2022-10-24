@@ -18,7 +18,6 @@
   position: fixed;
   z-index: 2;
   max-width: 1500px;
-  
 }
 
 .nav a{
@@ -36,9 +35,78 @@
   cursor: pointer;
 }
 
-/*------------ BREW-FORM ---------- */
+/*------------ HOME / ABOUT  ---------- */
+
+/*  structure for home and about*/
+.content-container {
+  padding-top: 100px;
+  max-width: 1500px;
+}
+
 .brew-form-container{
   border: solid grey 3px;
+  padding: 20px;
+}
+
+.brew-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
 
 /*------------ BREW-CONTAINERS ---------- */
+
+.brews-container{
+  margin: 0 auto;
+
+}
+
+.brews-list{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
+.brew-card{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px;
+  margin: 20px auto;
+  border: solid black 3px;
+  border-radius: 5px;
+}
+
+.brew-card p{
+  width: 250px;
+
+}
+
+.brew-card img{
+  max-width:300px;
+  margin:10px;
+  border-radius: 5px;
+}
+
+/*------------ SEARCH ---------- */
+
+.search{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+}
+
+.search input, .search label{
+  margin: 5px 10px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.search input{
+  width: 300px;
+}

@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BrewCard = () => {
+const BrewCard = ({name,image,location,description}) => {
     return (
         <div className='brew-card'>
-            <h1>BrewCard</h1>
+            <h3>{name}</h3>
+            <img src={image} alt={name} />
+            <p>{description}</p>
+            <p>{location}</p>
         </div>
 
     )
