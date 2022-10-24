@@ -45,8 +45,6 @@ const BrewsForm = () => {
         .catch(err => console.error(err))
     }
 
-      
-
     return (
         <div className='brew-form-container'>
             <h1>Add a new Brewery</h1>
