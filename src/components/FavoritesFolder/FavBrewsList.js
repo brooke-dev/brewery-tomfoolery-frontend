@@ -1,10 +1,18 @@
+import { render } from '@testing-library/react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import FaveBrewsCard from "./FavBrewsCard"
 
-const FavBrewsList = () => {
+const FavBrewsList = ({favorites}) => {
+
+    const renderFavorites = favorites.map (favorite => {
+        return (
+            <FaveBrewsCard key={favorite.id} favDetails={favorite} />
+        )
+    })
+    
     return (
         <div className='brews-list'>
-            <h1>FavBrewsList</h1>
+            {renderFavorites}
         </div>
 
     )
