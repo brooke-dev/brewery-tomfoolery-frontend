@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import BrewsList from'./BrewsList'
 
 const MyBrews = ({filterMyBrewsCards,id}) => {
+    
     return (
         <div className='brews-container'>
             <h1>My Brews</h1>
-            <BrewsList filterMyBrewsCards={filterMyBrewsCards}/>
+            <BrewsList currentId={id} filterMyBrewsCards={filterMyBrewsCards}/>
         </div>
 
     )

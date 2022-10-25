@@ -23,8 +23,7 @@ function App() {
     .then(setMyBrewsCards)
   },[currentId])
 
-    //Search bar logic for myBrews. Will need to make a filter for Favorites 
-
+  //Search bar logic for myBrews. Will need to make a filter for Favorites 
   const filterMyBrewsCards = myBrewsCards.filter((myBrewsCard) =>
   myBrewsCard.name.toLowerCase().includes(search.toLowerCase())
   )
