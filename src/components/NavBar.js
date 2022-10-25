@@ -8,6 +8,7 @@ const NavBar = ({username, id, handleLogOut}) => {
             <NavLink to="/about">About</NavLink>
             <NavLink to="/myBrews">My Brews</NavLink>
             <NavLink to="/favorites">Favorites</NavLink>
+            <NavLink to="/globalBrews">Global Brews</NavLink>
             <span>
                 Logged in as: {username}, id: {id}
                 <button onClick={handleLogOut}>Sign Out</button>
