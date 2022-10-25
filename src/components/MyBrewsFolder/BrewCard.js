@@ -23,8 +23,6 @@ const BrewCard = ({handleDeleteBrew,user_id, entry_id, checkFavoritedId, name,im
     }
 
     const handleFavorite = () => {
-      console.log("user-id",user_id)
-      console.log("entry-id",entry_id)
 
         if (!isFavorited) {
             fetch("http://localhost:9292/api/favorites", {

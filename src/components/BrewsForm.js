@@ -7,7 +7,6 @@ const initialState={
     description: "",
 }
 const BrewsForm = ({id}) => {
-    //set state
     const[formData, setFormData] = useState(initialState);
 
     //handle user input into each form field and set state based on input
@@ -17,7 +16,7 @@ const BrewsForm = ({id}) => {
         setFormData(formData => {
           return {
             ...formData,
-            [name]: value //get the value of the name attribute for whatever input we are in with [name] (will owrk for name, image, and description)
+            [name]: value //get the value of the name attribute for whatever input we are in with [name] (will owrk for name, image,location, and description)
           };
         })
       }

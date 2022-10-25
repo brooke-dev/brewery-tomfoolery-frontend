@@ -17,12 +17,13 @@ function App() {
   const [currentId, setCurrentId] = useState();
   const [myBrewsCards,setMyBrewsCards]=useState([])
   const [search, setSearch]=useState("")
+  const [editFormData, setEditFormData] = useState({})
 
   useEffect(()=>{
     fetch(`http://localhost:9292/api/entries/user/${currentId}`)
     .then((res) =>res.json())
     .then(setMyBrewsCards)
-  },[currentId])
+  },[currentId, setEditFormData])
 
   //Logic for deleting a brew:
   function handleDeleteBrew(id){
@@ -68,7 +69,7 @@ function App() {
               <FavoriteBrews id={currentId}/>
             </Route>
             <Route  exact path="/myBrews/:id">
-              <EditBrewCard/>
+              <EditBrewCard editFormData={editFormData} setEditFormData={setEditFormData}/>
             </Route>
           </Switch>
         </div>

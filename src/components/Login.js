@@ -15,7 +15,6 @@ const Login = ({setToken, setUser, setCurrentId}) => {
    
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('first pull', users)
         const usersLowerCase = users.map(element => element.username.toLowerCase())
         // console.log(users.find(element => element.username.toLowerCase() === formData.toLowerCase()))
         // console.log(usersLowerCase.includes(formData.toLowerCase())) //returns true or false
@@ -39,8 +38,6 @@ const Login = ({setToken, setUser, setCurrentId}) => {
             })
             .catch(err => console.error(err))
 
-
-            console.log('second pull', users)
             // setCurrentId(users.find(element => element.username.toLowerCase() === formData.toLowerCase()).id)
             // setUser(formData)
         }
