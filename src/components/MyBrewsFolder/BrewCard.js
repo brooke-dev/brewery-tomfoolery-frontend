@@ -1,19 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
-const BrewCard = ({name,image,location,description}) => {
+const BrewCard = ({id, name,image,location,description}) => {
     const [isFavorited, setIsFavorited] = useState(false);
+    const [currEntry, setEntry] = useState({})
+
+    useEffect(() => {
+      fetch("http://localhost:9292/api/entries")
+      .then(res => res.json())
+      .then(data => {
+        const currEnt = data.find(d =>  d.name === name && d.location === location && d.description === description)
+        setEntry(currEnt)
+      })
+      .catch(console.error)
+    }, [])
 
     const handleFavorite = () => {
+      console.log(currEntry)
+      console.log(id)
+
         if (!isFavorited) {
             fetch("http://localhost:9292/api/favorites", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
               },
-              body: JSON.stringify(
-                "THIS NEEDS TO BE SOMETHING ELSE"
-              ),
+              body: JSON.stringify({user_id: id, entry_id: currEntry.id
+            }),
             })
             
             setIsFavorited((isFavorited) => !isFavorited);
