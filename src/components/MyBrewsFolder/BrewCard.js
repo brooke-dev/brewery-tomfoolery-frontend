@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
-const BrewCard = ({user_id, entry_id, checkFavoritedId, name,image,location,description}) => {
+const BrewCard = ({handleDeleteBrew,user_id, entry_id, checkFavoritedId, name,image,location,description}) => {
     const [isFavorited, setIsFavorited] = useState(false);
     console.log(checkFavoritedId)
     
@@ -40,6 +40,15 @@ const BrewCard = ({user_id, entry_id, checkFavoritedId, name,image,location,desc
         }
     }
 
+    // Deleting a brew logic:
+    function handleDeleteClick(id){
+      fetch(`http://localhost:3000/api/entries/entry-id/${id}`,{
+      method: "DELETE",
+      })
+      handleDeleteBrew(id);
+    }
+  
+
     return (
         <div className='brew-card'>
             <h3>{name}</h3>
@@ -47,6 +56,10 @@ const BrewCard = ({user_id, entry_id, checkFavoritedId, name,image,location,desc
             <p>{description}</p>
             <p>{location}</p>
             <button className='favorite-btn' onClick={handleFavorite}>{isFavorited ? "Favorited!" : "Add to Favorites"}</button>
+            <button className='delete-btn' onClick={() => handleDeleteClick(entry_id)}>🗑️</button>
+            <Link to={`/myBrews/${entry_id}`}> 
+            <button className='edit-btn'>✎</button>
+            </Link>
         </div>
 
     )

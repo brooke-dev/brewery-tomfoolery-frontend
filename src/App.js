@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import About from './components/About';
 import MyBrews from './components/MyBrewsFolder/MyBrews';
+import EditBrewCard from './components/MyBrewsFolder/EditBrewCard';
 import Login from './components/Login';
 import FavoriteBrews from './components/FavoritesFolder/FavoriteBrews';
 import {Route, Switch} from 'react-router-dom';
@@ -22,6 +23,12 @@ function App() {
     .then((res) =>res.json())
     .then(setMyBrewsCards)
   },[currentId])
+
+  //Logic for deleting a brew:
+  function handleDeleteBrew(id){
+    const updatedBrewArray=myBrewsCards.filter((oneMyBrewCard) => oneMyBrewCard.id !== id);
+    setMyBrewsCards(updatedBrewArray)
+  }
 
   //Search bar logic for myBrews. Will need to make a filter for Favorites 
   const filterMyBrewsCards = myBrewsCards.filter((myBrewsCard) =>
@@ -54,10 +61,14 @@ function App() {
                 setSearch={setSearch}
                 filterMyBrewsCards={filterMyBrewsCards} 
                 id={currentId}
+                handleDeleteBrew={handleDeleteBrew}
               />              
             </Route>
             <Route  path="/favorites">
               <FavoriteBrews id={currentId}/>
+            </Route>
+            <Route  exact path="/myBrews/:id">
+              <EditBrewCard/>
             </Route>
           </Switch>
         </div>

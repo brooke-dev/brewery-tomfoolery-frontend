@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BrewCard from './BrewCard'
 
-const BrewsList = ({currentId, filterMyBrewsCards}) => {
+const BrewsList = ({currentId, filterMyBrewsCards, handleDeleteBrew}) => {
     const [favorites, setFavorites] = useState([]);
     console.log(filterMyBrewsCards)
     
@@ -35,6 +35,7 @@ const BrewsList = ({currentId, filterMyBrewsCards}) => {
             image={oneBrewsCard.image_url}
             location={oneBrewsCard.location}
             description={oneBrewsCard.description}
+            handleDeleteBrew={handleDeleteBrew}
         />)
       })
 
