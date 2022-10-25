@@ -26,7 +26,7 @@ const BrewsList = ({currentId, filterMyBrewsCards}) => {
       const renderBrewCard = filterMyBrewsCards.map((oneBrewsCard) => {
         const checkFavoritedId = favEntryIds.find(favId => favId === oneBrewsCard.id)
         return (  
-            <BrewCard 
+          <BrewCard 
             key={oneBrewsCard.id}
             user_id={currentId}
             entry_id={oneBrewsCard.id}
@@ -35,7 +35,8 @@ const BrewsList = ({currentId, filterMyBrewsCards}) => {
             image={oneBrewsCard.image_url}
             location={oneBrewsCard.location}
             description={oneBrewsCard.description}
-        />)
+          />
+        )
       })
 
     return (

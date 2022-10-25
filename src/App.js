@@ -5,6 +5,7 @@ import About from './components/About';
 import MyBrews from './components/MyBrewsFolder/MyBrews';
 import Login from './components/Login';
 import FavoriteBrews from './components/FavoritesFolder/FavoriteBrews';
+import GlobalBrews from './components/GlobalBrewsFolder/GlobalBrews';
 import {Route, Switch} from 'react-router-dom';
 import React,{useState,useEffect} from 'react'
 // import BrewsList from './components/MyBrewsFolder/BrewsList';
@@ -45,10 +46,10 @@ function App() {
             <Route exact path="/">
               <Home id={currentId}/>
             </Route>
-            <Route  exact path="/about">
+            <Route exact path="/about">
               <About />
             </Route>
-            <Route  exact path="/myBrews">
+            <Route exact path="/myBrews">
               <Search search={search} setSearch={setSearch}/>
               <MyBrews 
                 setSearch={setSearch}
@@ -56,8 +57,11 @@ function App() {
                 id={currentId}
               />              
             </Route>
-            <Route  path="/favorites">
+            <Route path="/favorites">
               <FavoriteBrews id={currentId}/>
+            </Route>
+            <Route exact path="/globalBrews">
+              <GlobalBrews currentId={currentId}/>
             </Route>
           </Switch>
         </div>
