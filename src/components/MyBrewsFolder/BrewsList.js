@@ -1,20 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BrewCard from './BrewCard'
 
 const BrewsList = ({currentId, filterMyBrewsCards}) => {
+    const [favorites, setFavorites] = useState([]);
+    console.log(filterMyBrewsCards)
+    
+    //get data from favorites saved to a user
+      useEffect(() => {
+        fetch(`http://localhost:9292/api/favorited_entries/users/${currentId}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            
+          setFavorites(data)
+        })
+        .catch(console.error)
+      }, [])
+
+      //array of entry_ids from favorites list
+      const favEntryIds = favorites.map(fav => {
+        return fav.id
+      })
+      
+      const renderBrewCard = filterMyBrewsCards.map((oneBrewsCard) => {
+        const checkFavoritedId = favEntryIds.find(favId => favId === oneBrewsCard.id)
+        return (  
+            <BrewCard 
+            key={oneBrewsCard.id}
+            user_id={currentId}
+            entry_id={oneBrewsCard.id}
+            checkFavoritedId={checkFavoritedId}
+            name={oneBrewsCard.name}
+            image={oneBrewsCard.image_url}
+            location={oneBrewsCard.location}
+            description={oneBrewsCard.description}
+        />)
+      })
+
     return (
         <div className='brews-list'>
-            {filterMyBrewsCards.map((oneBrewsCard) => (
-                <BrewCard 
-                    key={oneBrewsCard.id}
-                    id={currentId}
-                    name={oneBrewsCard.name}
-                    image={oneBrewsCard.image_url}
-                    location={oneBrewsCard.location}
-                    description={oneBrewsCard.description}
-                />
-            ))}
+            {renderBrewCard}
         </div>
 
     )
