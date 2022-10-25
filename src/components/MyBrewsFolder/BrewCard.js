@@ -47,6 +47,9 @@ const BrewCard = ({user_id, entry_id, checkFavoritedId, name,image,location,desc
             <p>{description}</p>
             <p>{location}</p>
             <button className='favorite-btn' onClick={handleFavorite}>{isFavorited ? "Favorited!" : "Add to Favorites"}</button>
+            <button className='delete-btn'>🗑️</button>
+            <button className='edit-btn'>✎</button>
+            
         </div>
 
     )
