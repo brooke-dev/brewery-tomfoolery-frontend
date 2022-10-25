@@ -42,7 +42,7 @@ const BrewCard = ({handleDeleteBrew,user_id, entry_id, checkFavoritedId, name,im
 
     // Deleting a brew logic:
     function handleDeleteClick(id){
-      fetch(`http://localhost:3000/api/entries/entry-id/${id}`,{
+      fetch(`http://localhost:9292/api/entries/entry-id/${id}`,{
       method: "DELETE",
       })
       handleDeleteBrew(id);
