@@ -4,15 +4,12 @@ import BrewCard from './BrewCard'
 
 const BrewsList = ({currentId, filterMyBrewsCards, handleDeleteBrew}) => {
     const [favorites, setFavorites] = useState([]);
-    console.log(filterMyBrewsCards)
     
     //get data from favorites saved to a user
       useEffect(() => {
         fetch(`http://localhost:9292/api/favorited_entries/users/${currentId}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            
           setFavorites(data)
         })
         .catch(console.error)
