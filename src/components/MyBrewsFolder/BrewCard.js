@@ -3,19 +3,6 @@ import { Link } from 'react-router-dom';
 
 const BrewCard = ({handleDeleteBrew,user_id, entry_id, checkFavoritedId, name,image,location,description}) => {
     const [isFavorited, setIsFavorited] = useState(false);
-    console.log(checkFavoritedId)
-    
-    // const [currEntry, setEntry] = useState({})
- //
-    // useEffect(() => {
-    //   fetch("http://localhost:9292/api/entries")
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     const currEnt = data.find(d =>  d.name === name && d.location === location && d.description === description)
-    //     setEntry(currEnt)
-    //   })
-    //   .catch(console.error)
-    // }, [])
 
     //check if a card on render is already favorited
     if (checkFavoritedId && isFavorited === false){

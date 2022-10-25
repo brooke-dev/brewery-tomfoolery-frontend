@@ -13,7 +13,7 @@ const EditBrewCard = ({ editFormData, setEditFormData }) => {
       .then((entry) => {
          setEditFormData(entry)
       });
-  }, [params.id]);
+  }, [params.id, setEditFormData]);
 
   //update editFormData w/ new user input to form
   const handleOnChange = (e) => {

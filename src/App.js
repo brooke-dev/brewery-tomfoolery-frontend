@@ -23,7 +23,7 @@ function App() {
     fetch(`http://localhost:9292/api/entries/user/${currentId}`)
     .then((res) =>res.json())
     .then(setMyBrewsCards)
-  },[currentId, setEditFormData])
+  },[currentId, editFormData])
 
   //Logic for deleting a brew:
   function handleDeleteBrew(id){
