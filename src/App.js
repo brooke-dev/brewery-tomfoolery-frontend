@@ -16,26 +16,26 @@ function App() {
   const [token, setToken] = useState(false);
   const [currentUser, setUser] = useState("");
   const [currentId, setCurrentId] = useState();
-  const [myBrewsCards,setMyBrewsCards]=useState([])
+  // const [myBrewsCards,setMyBrewsCards]=useState([])
   const [search, setSearch]=useState("")
   const [editFormData, setEditFormData] = useState({})
 
-  useEffect(()=>{
-    fetch(`http://localhost:9292/api/entries/user/${currentId}`)
-    .then((res) =>res.json())
-    .then(setMyBrewsCards)
-  },[currentId, editFormData])
+  // useEffect(()=>{
+  //   fetch(`http://localhost:9292/api/entries/user/${currentId}`)
+  //   .then((res) =>res.json())
+  //   .then(setMyBrewsCards)
+  // },[currentId, editFormData])
 
-  //Logic for deleting a brew:
-  function handleDeleteBrew(id){
-    const updatedBrewArray=myBrewsCards.filter((oneMyBrewCard) => oneMyBrewCard.id !== id);
-    setMyBrewsCards(updatedBrewArray)
-  }
+  // //Logic for deleting a brew:
+  // function handleDeleteBrew(id){
+  //   const updatedBrewArray=myBrewsCards.filter((oneMyBrewCard) => oneMyBrewCard.id !== id);
+  //   setMyBrewsCards(updatedBrewArray)
+  // }
 
-  //Search bar logic for myBrews. Will need to make a filter for Favorites 
-  const filterMyBrewsCards = myBrewsCards.filter((myBrewsCard) =>
-  myBrewsCard.name.toLowerCase().includes(search.toLowerCase())
-  )
+  // //Search bar logic for myBrews. Will need to make a filter for Favorites 
+  // const filterMyBrewsCards = myBrewsCards.filter((myBrewsCard) =>
+  // myBrewsCard.name.toLowerCase().includes(search.toLowerCase())
+  // )
 
   const handleLogOut = () => {
     setUser("");
@@ -60,17 +60,29 @@ function App() {
             <Route exact path="/myBrews">
               <Search search={search} setSearch={setSearch}/>
               <MyBrews 
+                // filterMyBrewsCards={filterMyBrewsCards} 
+                search={search}
                 setSearch={setSearch}
-                filterMyBrewsCards={filterMyBrewsCards} 
                 id={currentId}
-                handleDeleteBrew={handleDeleteBrew}
+                // handleDeleteBrew={handleDeleteBrew}
+                editFormData={editFormData}
               />              
             </Route>
             <Route path="/favorites">
-              <FavoriteBrews id={currentId}/>
+              <Search search={search} setSearch={setSearch}/>
+              <FavoriteBrews 
+                id={currentId} 
+                search={search} 
+                setSearch={setSearch}
+              />
             </Route>
             <Route exact path="/globalBrews">
-              <GlobalBrews currentId={currentId}/>
+              <Search search={search} setSearch={setSearch}/>
+              <GlobalBrews 
+                currentId={currentId}
+                search={search}
+                setSearch={setSearch}
+              />
             </Route>
             <Route  exact path="/myBrews/:id">
               <EditBrewCard editFormData={editFormData} setEditFormData={setEditFormData}/>

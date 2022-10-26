@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import GlobalBrewCard from './GlobalBrewCard';
 
-const GlobalBrewsList = ({currentId}) => {
+const GlobalBrewsList = ({currentId,search,setSearch}) => {
     const [brews, setBrews] = useState([]);
     const [favorites, setFavorites] = useState([]);
 
@@ -11,7 +11,8 @@ const GlobalBrewsList = ({currentId}) => {
         fetch(`http://localhost:9292/api/entries`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
+            setSearch("")
             setBrews(data)
         })
         .catch(console.error)
@@ -32,8 +33,15 @@ const GlobalBrewsList = ({currentId}) => {
         return fav.id
     })
 
-    console.log(brews)
-    const renderBrewCard = brews.map((oneBrewsCard) => {
+    //Search bar logic for global brews
+    const filterGlobalBrews = brews.filter((oneGlobalBrew) => 
+        oneGlobalBrew.name.toLowerCase().includes(search.toLowerCase())
+    )
+    
+    // console.log(brews)
+    // console.log(filterGlobalBrews)
+
+    const renderBrewCard = filterGlobalBrews.map((oneBrewsCard) => {
         const checkFavoritedId = favEntryIds.find(favId => favId === oneBrewsCard.id)
         return (
             <GlobalBrewCard 
