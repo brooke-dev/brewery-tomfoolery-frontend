@@ -118,3 +118,9 @@
   flex-direction: column;
   align-items: center;
 }
+
+
+/* -----Hidden class --------- */
+.hidden {
+  visibility: hidden;
+}
