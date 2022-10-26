@@ -21,7 +21,6 @@ const Login = ({setToken, setUser, setCurrentId}) => {
         if (usersLowerCase.includes(formData.toLowerCase())) {
             setCurrentId(users.find(element => element.username.toLowerCase() === formData.toLowerCase()).id)
             setUser(formData)
-            console.log(formData)
         } 
         else {
             fetch(`http://localhost:9292/api/users/${formData}`, {

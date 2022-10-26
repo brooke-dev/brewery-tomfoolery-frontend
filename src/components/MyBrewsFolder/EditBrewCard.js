@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
 const EditBrewCard = ({ editFormData, setEditFormData }) => {
+  const [updated, setUpdated] = useState(false);
 
   // path via Link and useParams, sending entry_id of link clicked on as params
   const params = useParams();
@@ -40,11 +41,15 @@ const EditBrewCard = ({ editFormData, setEditFormData }) => {
       .then(res => res.json())
       .then(updatedEntry => {
         setEditFormData(updatedEntry)
+        setUpdated(updated => !updated)
       })
  }
+
+ const editMsgClassName = updated ? '' : 'hidden';
  
   return (
-    <div className='brew-form-container'>
+    <div className="content-container">
+        <div className='brew-form-container'>
             <h2>Edit Your Brewery</h2>
             <form className="brew-form" autoComplete='off' onSubmit={handleUpdateSubmit}>
 
@@ -63,6 +68,18 @@ const EditBrewCard = ({ editFormData, setEditFormData }) => {
                 <button className='submit-btn' type="submit">UPDATE</button>
                 
             </form>
+
+          </div>
+
+            <div id="edit-complete-msg" className={editMsgClassName}>
+                <h3>Edit complete!</h3>
+                <Link to="/myBrews">
+                  <button className='return-to-myBrews'>View My Brews
+                  </button>
+                </Link>
+
+              </div>
+
         </div>
   )
 }
