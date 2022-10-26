@@ -10,8 +10,8 @@ const NavBar = ({username, id, handleLogOut}) => {
             <NavLink to="/favorites">Favorites</NavLink>
             <NavLink to="/globalBrews">Global Brews</NavLink>
             <span>
-                Logged in as: {username}, id: {id}
-                <button onClick={handleLogOut}>Sign Out</button>
+                Hello, {username}!
+                <button className="sign-out" onClick={handleLogOut}>Sign Out</button>
             </span>
         </div>
 

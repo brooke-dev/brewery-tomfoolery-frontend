@@ -41,19 +41,19 @@ const BrewsForm = ({id}) => {
 
     return (
         <div className='brew-form-container'>
-            <h2>Add a new Brewery</h2>
+            <h2>Add a new Brew</h2>
             <form className="brew-form" autoComplete='off' onSubmit={handleBrewSubmit}>
-                <label>Brewery Name:</label>
-                <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange}/>
+                <label>Brew Name:</label>
+                <input type='text'id="name" name="name" value={formData.name} onChange={handleOnChange} required/>
 
                 <label>Image URL:</label>
-                <input type='text'id="image" name="image_url" value={formData.image_url} onChange={handleOnChange}/>
+                <input type='text'id="image" name="image_url" value={formData.image_url} onChange={handleOnChange} required/>
 
-                <label>Location:</label>
-                <input type='text'id="location" name="location" value={formData.location} onChange={handleOnChange}/>
+                <label>Brewery Name:</label>
+                <input type='text'id="location" name="location" value={formData.location} onChange={handleOnChange} required/>
 
                 <label>Description:</label>
-                <input type='text' id="description" name="description" value={formData.description} onChange={handleOnChange}/>
+                <input type='text' id="description" name="description" value={formData.description} onChange={handleOnChange} required/>
 
                 <button className='submit-btn' type="submit">ADD BREWERY</button>
             </form>

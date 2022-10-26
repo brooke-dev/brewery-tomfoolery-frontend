@@ -29,8 +29,10 @@ const FavoriteBrews = ({id,search,setSearch}) => {
 
     return (
         <div className='brews-container'>
-            <h1>My Favorites</h1>
-            <FaveBrewsList favorites={filterFavBrewsCards} onDelete={handleDeleteFavorite}/>
+          <div className='fav-brews-container'>
+              <h1>My Favorites</h1>
+              <FaveBrewsList favorites={filterFavBrewsCards} onDelete={handleDeleteFavorite}/>
+          </div>
         </div>
 
     )
