@@ -48,24 +48,24 @@ const EditBrewCard = ({ editFormData, setEditFormData }) => {
  const editMsgClassName = updated ? '' : 'hidden';
  
   return (
-    <div className="content-container">
-        <div className='brew-form-container'>
-            <h2>Edit Your Brewery</h2>
+    <div className="edit-container">
+        <div className='edit-form-container'>
+            <h2>Edit Your Brew</h2>
             <form className="brew-form" autoComplete='off' onSubmit={handleUpdateSubmit}>
 
-                <label>Brewery Name:</label>
-                <input type='text'id="name" name="name" value={editFormData.name} onChange={handleOnChange}/>
+                <label>Brew Name:</label>
+                <input type='text'id="name" name="name" value={editFormData.name} onChange={handleOnChange} required/>
 
                 <label>Image URL:</label>
-                <input type='text'id="image" name="image_url" value={editFormData.image_url} onChange={handleOnChange}/>
+                <input type='text'id="image" name="image_url" value={editFormData.image_url} onChange={handleOnChange} required/>
 
-                <label>Location:</label>
-                <input type='text'id="location" name="location" value={editFormData.location} onChange={handleOnChange}/>
+                <label>Brewery Name:</label>
+                <input type='text'id="location" name="location" value={editFormData.location} onChange={handleOnChange} required/>
 
                 <label>Description:</label>
-                <input type='text' id="description" name="description" value={editFormData.description} onChange={handleOnChange}/>
+                <input type='text' id="description" name="description" value={editFormData.description} onChange={handleOnChange} required/>
 
-                <button className='submit-btn' type="submit">UPDATE</button>
+                <button className='submit-btn' type="submit">UPDATE 🍻</button>
                 
             </form>
 

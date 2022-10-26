@@ -4,8 +4,10 @@ import BrewsForm from './BrewsForm';
 const Home = ({id}) => {
     return (
         <div className='home'>
-            <h1>Brewery Tomfoolery</h1>
-            <BrewsForm id={id}/>
+            <div className="home-intro">
+                <h1>Brewery Tomfoolery</h1>
+                <BrewsForm id={id}/>
+            </div>
         </div>
 
     )

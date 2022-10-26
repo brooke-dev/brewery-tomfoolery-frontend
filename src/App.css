@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap');
+
+:root{
+  --main-dark-tan: #a76823;
+  --main-tan: #c8833f;
+  --main-gold: rgb(236, 183, 49);
+  --main-dark-gold: rgb(202, 92, 28);
+  --main-white: rgba(251, 246, 233);
+  --translucent-white: rgba(251, 246, 233,0.7);
+  --main-plum: rgb(108, 11, 48);
+  --main-black: rgb(80, 73, 73);
+  --abril-font: 'Abyssinica SIL', serif;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -5,7 +19,28 @@
   width: 100vw;
   height: 100vh;
   overflow-y: scroll;
- 
+  color: var(--main-black);
+  font-family: var(--abril-font);
+  font-weight: bold;
+}
+
+button{
+  background-color: var(--main-plum);
+  color: var(--main-white);
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 10px;
+  margin-bottom: 10px;
+  font-family: var(--abril-font);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button:hover{
+  font-weight: bold;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 /*------------ NAVBAR ---------- */
@@ -14,10 +49,13 @@
   display: flex;
   justify-content: left;
   align-items:left;
+  align-content: center;
   flex-direction: row;
   position: fixed;
   z-index: 2;
   max-width: 1500px;
+  background-color: rgb(236, 183, 49, 0.8);
+  backdrop-filter: blur(5px);
 }
 
 .nav a{
@@ -27,40 +65,101 @@
   padding: 25px 0; 
   margin: 0 25px;
   transition: 0.2s ease-in-out;
-  color: rgb(54, 51, 51)
-  
+  color:var(--main-plum);
 }
-
 .nav a:hover{
   transform: scale(1.1);
   cursor: pointer;
 }
 
-/*------------ HOME / ABOUT  ---------- */
+.nav span{
+  margin-left: auto;
+  margin-top: 15px;
+  padding-right: 20px;
+}
 
-/*  structure for home and about*/
+.sign-out{
+  margin: 5px;
+}
+
+/*------------ new brew and edit form ---------- */
+
+.brew-form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.brew-form input{
+ border: none;
+ border-radius: 5px;
+ padding: 10px;
+ margin: 5px 0;
+ background-color: var(--main-white);
+}
+
+.submit-btn{
+  margin-top: 10px;
+}
+/*------------ All pages inside app gen structure  ---------- */
+
 .content-container {
-  padding-top: 100px;
   max-width: 1500px;
 }
 
-.brew-form-container{
-  border: solid grey 3px;
-  padding: 20px;
+/* -------- About -------- */
+.about{
+padding-top: 100px;
+margin: 0 100px;
 }
 
+/* -------- HOME -------- */
+.home{
+  height: 100vh;
+  width: 100vw;
+  padding: none;
+  margin: none;
+  max-width: 1500px;
+  max-height: 1200px;  
+  background-image: url("../breweryTomfooleryPics/beerFlight2.jpg");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-intro{
+  border: solid var(--main-dark-gold) 3px;
+  border-radius: 5px;
+  width: 30vw;
+  max-width: 500px;
+  background-color: var(--translucent-white);
+	backdrop-filter: blur(5px);
+	padding: 2rem;
+  font-weight: bold;
+}
+.home h1{
+  color: var(--main-plum);
+  font-size: 45px;
+}
+.brew-form-container h2{
+  text-decoration: underline solid var(--main-plum);
+}
 .brew-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 }
 
-/*------------ BREW-CONTAINERS ---------- */
+/*------------ BREW-CONTAINERS--general-styling ---------- */
 
 .brews-container{
   margin: 0 auto;
-
+  max-width: 1500px;
 }
 
 .brews-list{
@@ -78,39 +177,113 @@
   flex-direction: column;
   align-items: center;
   width: 300px;
-  padding: 10px 10px;
+  padding: 10px 10px 5px 10px;
   margin: 20px;
-  border: solid black 3px;
   border-radius: 5px;
+  /* color: var(--main-dark-gold); */
+  background-color: var(--translucent-white);
+	backdrop-filter: blur(5px);
+  /* border: solid var(--main-dark-gold) 3px; */
 }
 
 .brew-card p{
   width: 250px;
-
 }
 
 .brew-card img{
   width: 250px;
-  margin:10px;
   border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid var(--main-black);
 }
+/*------------ MY BREWS---------- */
+.my-brews-container{
+  background-image: url("../breweryTomfooleryPics/beerFireplace.jpg");
+  background-position: top;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  padding: 50px 50px;
+  height: 100vh;
+  width: 100vw;
+  max-width: 1400px;
+}
+
+ h1{
+  color: var(--main-plum);
+  text-decoration: underline solid var(--main-gold);
+  font-size: 55px;
+}
+
+.my-card-btns{
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: bottom;
+  align-items:bottom;
+  align-content: bottom;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+}
+
+.delete-btn{
+  margin-left: auto;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+.edit-btn{
+  font-size: 30px;
+  background-color: transparent;
+  color: var(--main-plum);
+  padding: 0;
+  margin: 0;
+}
+
+/*------------ FAVE BREWS---------- */
+.fav-brews-container{
+  background-image: url("../breweryTomfooleryPics/beerFlight3.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  padding: 50px 50px;
+  height: 100vh;
+  width: 100vw;
+  max-width: 1400px;
+}
+
+/*------------ GLOBAL BREWS---------- */
 
 /*------------ SEARCH ---------- */
 
 .search{
   display:flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: center;
+  align-self: center;
+  /* width: 500px; */
+  margin: 0 auto;
+  padding: 100px 0 20px 0;
+  background-color: var(--main-gold);
+  max-width: 1600px;
 }
 
 .search input, .search label{
   margin: 5px 10px;
-  font-size: 16px;
-  padding: 5px;
+  font-size: 20px;
+  padding: 10px;
 }
 
 .search input{
   width: 300px;
+  border-radius: 5px;
+  border: none;
+  /* color: var(--main-dark-gold); */
+  background-color: var(--main-white);
 }
 /*------------ Login-page ---------- */
 .login-page{
@@ -119,8 +292,41 @@
   align-items: center;
 }
 
+/*------------ Edit-Container ---------- */
 
+.edit-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  margin: 0 auto;
+  /* padding-top: 150px; */
+  width: 50vw;
+  max-width: 1500px;
+  background-color: var(--main-plum);
+}
+
+.edit-form-container{
+  width: 30vw;
+  max-width: 400px;
+  background-color: var(--translucent-white);
+	backdrop-filter: blur(5px);
+  border: solid var(--main-gold) 3px;
+  border-radius: 5px;
+	padding: 30px;
+  margin: 0 auto;
+  font-weight: bold;
+}
 /* -----Hidden class --------- */
 .hidden {
   visibility: hidden;
+}
+
+/* .active{
+  font-weight: bold;
+  text-decoration: underline solid var(--main-dark-gold);
+} */
+
+.favorited{
+  background-color: var(--main-gold);
 }

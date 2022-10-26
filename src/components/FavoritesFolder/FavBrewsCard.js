@@ -17,7 +17,7 @@ const FavBrewsCard = ({onDelete, favDetails}) => {
             <img src={favDetails.image_url} alt={favDetails.name} />
             <p>{favDetails.location}</p>
             <p>{favDetails.description}</p>
-            <button className='delete-btn' onClick={() => handleDelete(favDetails.id)}>X</button>
+            <button className='delete-btn' onClick={() => handleDelete(favDetails.id)}>🗑</button>
         </div>
 
     )
