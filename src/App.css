@@ -202,6 +202,8 @@ margin: 0 100px;
 
 .brew-card img{
   width: 250px;
+  height: 250px;
+  object-fit: cover;
   border-radius: 5px;
   margin-bottom: 10px;
   border: 1px solid var(--main-black);
@@ -209,7 +211,8 @@ margin: 0 100px;
 /*------------ MY BREWS---------- */
 .my-brews-container{
   background-image: url("../breweryTomfooleryPics/beerFireplace.jpg");
-  background-position: top;
+  background-position: top -20% right 0%;
+  /* background-position: center; */
   background-repeat: no-repeat; 
   background-size: cover;
   background-attachment: fixed;
