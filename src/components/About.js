@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Brooke_about from "../aboutImages/Brooke_about.jpg"
 
 const About = () => {

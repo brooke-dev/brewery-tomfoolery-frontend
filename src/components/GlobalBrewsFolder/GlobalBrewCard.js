@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
-const GlobalBrewCard = ({username, entry_id, name, image, location, description, checkFavoritedId, currentId}) => {
+const GlobalBrewCard = ({userName, entry_id, name, image, location, description, checkFavoritedId, currentId}) => {
     const [isFavorited, setIsFavorited] = useState(false);
 
     //check if a card on render is already favorited
@@ -33,7 +33,7 @@ const GlobalBrewCard = ({username, entry_id, name, image, location, description,
             <p>{description}</p>
             <p>{location}</p>
             <button className={favoritedClassName} onClick={handleFavorite}>{isFavorited ? "Favorited!" : "Add to Favorites"}</button>
-            <p className='global-card-username'>Added by: {username}</p>
+            <p className='global-card-N'>Added by: {userName}</p>
         </div>
 
     )
