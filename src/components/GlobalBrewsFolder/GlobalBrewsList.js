@@ -45,9 +45,17 @@ const GlobalBrewsList = ({currentId,search,setSearch}) => {
     })
 
     //Search bar logic for global brews
-    const filterGlobalBrews = brews.filter((oneGlobalBrew) => 
-        oneGlobalBrew.name.toLowerCase().includes(search.toLowerCase())
-    )
+
+    const filterGlobalBrews = brews.filter((oneGlobalBrew) => {
+        if (oneGlobalBrew.name.toLowerCase().includes(search.toLowerCase())) {
+            return true
+        } else if (oneGlobalBrew.location.toLowerCase().includes(search.toLowerCase())){
+            return true
+        } else return false
+    })
+    
+    // console.log(brews)
+    // console.log(filterGlobalBrews)
 
     console.log(users)
     const renderBrewCard = filterGlobalBrews.map((oneBrewsCard) => {

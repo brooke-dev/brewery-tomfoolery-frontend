@@ -114,6 +114,11 @@ padding-top: 100px;
 margin: 0 100px;
 }
 
+.about-information img{
+  height:200px;
+
+}
+
 /* -------- HOME -------- */
 .home{
   height: 100vh;
