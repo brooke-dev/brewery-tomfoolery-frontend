@@ -5,6 +5,7 @@ import GlobalBrewCard from './GlobalBrewCard';
 const GlobalBrewsList = ({currentId,search,setSearch}) => {
     const [brews, setBrews] = useState([]);
     const [favorites, setFavorites] = useState([]);
+    const [users, setUsers] = useState([]);
 
     //get all entries
     useEffect(() => {
@@ -28,6 +29,16 @@ const GlobalBrewsList = ({currentId,search,setSearch}) => {
         .catch(console.error)
     }, [])
 
+    //get usernames and associated id's  
+    useEffect(() => {
+        fetch(`http://localhost:9292/api/users`)
+        .then(res => res.json())
+        .then(data => {
+            setUsers(data)
+        })
+        .catch(console.error)
+    }, [])
+
     //array of entry_ids from favorites list
     const favEntryIds = favorites.map(fav => {
         return fav.id
@@ -37,14 +48,15 @@ const GlobalBrewsList = ({currentId,search,setSearch}) => {
     const filterGlobalBrews = brews.filter((oneGlobalBrew) => 
         oneGlobalBrew.name.toLowerCase().includes(search.toLowerCase())
     )
-    
-    // console.log(brews)
-    // console.log(filterGlobalBrews)
 
+    console.log(users)
     const renderBrewCard = filterGlobalBrews.map((oneBrewsCard) => {
         const checkFavoritedId = favEntryIds.find(favId => favId === oneBrewsCard.id)
+        const brewCard = users.find(user => user.id === oneBrewsCard.user_id)
+        const username = brewCard.username
         return (
             <GlobalBrewCard 
+                username={username}
                 entry_id={oneBrewsCard.id} 
                 name={oneBrewsCard.name} 
                 image={oneBrewsCard.image_url} 
@@ -61,7 +73,6 @@ const GlobalBrewsList = ({currentId,search,setSearch}) => {
             {renderBrewCard}
         </div>
     )
-    
 }
 
 export default GlobalBrewsList
