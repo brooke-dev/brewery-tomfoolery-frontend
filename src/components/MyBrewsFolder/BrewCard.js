@@ -33,23 +33,22 @@ const BrewCard = ({handleDeleteBrew,user_id, entry_id, checkFavoritedId, name,im
       handleDeleteBrew(id);
     }
   
+    const favoritedClassName = isFavorited ? 'favorite-btn favorited' : 'favorite-btn';
 
     return (
+      
         <div className='brew-card'>
             <h3>{name}</h3>
             <img src={image} alt={name} />
             <p>{description}</p>
             <p>{location}</p>
-            <button className='favorite-btn' onClick={handleFavorite}>{isFavorited ? "Favorited!" : "Add to Favorites"}</button>
-            
-            <div className="my-card-btns">
-        
-              <Link to={`/myBrews/${entry_id}`}> 
-              <button className='edit-btn'>✎</button>
-              </Link>
-              <button className='delete-btn' onClick={() => handleDeleteClick(entry_id)}>🗑</button>
-            </div>
+            <button className={favoritedClassName} onClick={handleFavorite}>{isFavorited ? "Favorited!" : "Add to Favorites"}</button>
+          <Link to={`/myBrews/${entry_id}`}> 
+            <button className='edit-btn'>✎</button>
+          </Link>
+            <button className='delete-btn' onClick={() => handleDeleteClick(entry_id)}>🗑</button>
         </div>
+  
 
     )
 }

@@ -55,7 +55,7 @@ const BrewsForm = ({id}) => {
                 <label>Description:</label>
                 <input type='text' id="description" name="description" value={formData.description} onChange={handleOnChange} required/>
 
-                <button className='submit-btn' type="submit">ADD BREWERY</button>
+                <button id="add-btn"className='submit-btn' type="submit">ADD BREW</button>
             </form>
         </div>
 

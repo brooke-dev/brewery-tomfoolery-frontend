@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Search from '../Search';
 import FaveBrewsList from './FavBrewsList';
 
 const FavoriteBrews = ({id,search,setSearch}) => {
@@ -30,6 +31,7 @@ const FavoriteBrews = ({id,search,setSearch}) => {
     return (
         <div className='brews-container'>
           <div className='fav-brews-container'>
+              <Search search={search} setSearch={setSearch}/>
               <h1>My Favorites</h1>
               <FaveBrewsList favorites={filterFavBrewsCards} onDelete={handleDeleteFavorite}/>
           </div>

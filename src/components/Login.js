@@ -51,10 +51,9 @@ const Login = ({setToken, setUser, setCurrentId}) => {
         <div className='login-page'>
             <h1>Login to View Brews</h1>
             <form className='login-form' onSubmit={handleSubmit}>
-                <label>
-                    <p>Username</p>
-                    <input type="text" value={formData} onChange={handleChange}/>
-                </label>
+                <label>Username</label>
+                <input type="text" value={formData} onChange={handleChange}/>
+                
                 {/* <label>
                     <p>Password</p>
                     <input type="password" />

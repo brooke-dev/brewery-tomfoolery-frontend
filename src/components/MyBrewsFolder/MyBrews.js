@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
+import Search from '../Search';
 import BrewsList from'./BrewsList'
 
 const MyBrews = ({search,setSearch,id,editFormData}) => {
@@ -30,6 +31,7 @@ const MyBrews = ({search,setSearch,id,editFormData}) => {
     return (
         <div className='brews-container'>
             <div className="my-brews-container">
+                <Search search={search} setSearch={setSearch}/>
                 <h1>My Brews</h1>
                 <BrewsList 
                     currentId={id} 
