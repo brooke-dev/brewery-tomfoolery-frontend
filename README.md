@@ -24,7 +24,7 @@ After doing the above, hop over to the back end repository and get that configur
 
 Welcome to Brewery Tomfoolery: the ultimate brew log for a brewery lover! Spend your days documenting the best of the best brews through the Add a new Brew form(found on our home page). This application is not only a diary for the brewery lover, but also interactive-- you will be able to access entries that have been made by other users as well. Navigate through your brews, your favorite brews, and global brews through the links at the top of the page!
 
-## Applcation Coding Details
+## Application Coding Details
 
 This application utilizes elements of React(JavaScript, CSS & HTML) and Ruby (Active Records), to create a cohesive front end and back end experience. Users data persists to a backend database so that any changes that the user has made (making a username, creating an entry, or favoriting entries from other users) will persist even if the page is refreshed.
 
