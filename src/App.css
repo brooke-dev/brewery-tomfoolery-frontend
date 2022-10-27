@@ -142,8 +142,10 @@ margin: 0 100px;
   border-radius: 5px;
   width: 30vw;
   max-width: 500px;
+  overflow-y: scroll;
   background-color: var(--translucent-white);
 	backdrop-filter: blur(5px);
+  margin-top: 35px;
 	padding: 2rem;
   font-weight: bold;
 }
@@ -152,12 +154,19 @@ margin: 0 100px;
   font-size: 45px;
 }
 .brew-form-container h2{
-  text-decoration: underline solid var(--main-plum);
+  color: var(--main-plum);
+  padding-top: 10px;
 }
+
 .brew-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#add-btn{
+  background-color: var(--main-gold);
+  font-size: 20px;
 }
 
 /*------------ BREW-CONTAINERS--general-styling ---------- */
@@ -177,12 +186,13 @@ margin: 0 100px;
 }
 
 .brew-card{
+  position: relative;
   display:flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 300px;
-  padding: 10px 10px 5px 10px;
+  padding: 10px 10px 55px 10px;
   margin: 20px;
   border-radius: 5px;
   /* color: var(--main-dark-gold); */
@@ -197,6 +207,8 @@ margin: 0 100px;
 
 .brew-card img{
   width: 250px;
+  height: 250px;
+  object-fit: cover;
   border-radius: 5px;
   margin-bottom: 10px;
   border: 1px solid var(--main-black);
@@ -204,15 +216,16 @@ margin: 0 100px;
 /*------------ MY BREWS---------- */
 .my-brews-container{
   background-image: url("../breweryTomfooleryPics/beerFireplace.jpg");
-  background-position: top;
+  background-position: top -20% right 0%;
+  /* background-position: center; */
   background-repeat: no-repeat; 
   background-size: cover;
   background-attachment: fixed;
   overflow-y: scroll;
-  padding: 50px 50px;
+  /* padding: 50px 50px; */
   height: 100vh;
   width: 100vw;
-  max-width: 1400px;
+  max-width: 1500px;
 }
 
  h1{
@@ -221,25 +234,20 @@ margin: 0 100px;
   font-size: 55px;
 }
 
-.my-card-btns{
-  width: 100%;
-  display:flex;
-  flex-direction: row;
-  justify-content: bottom;
-  align-items:bottom;
-  align-content: bottom;
-  padding-bottom: 5px;
-  margin-bottom: 0;
-}
-
 .delete-btn{
-  margin-left: auto;
+  /* margin-left: auto; */
+  position:absolute;
+  bottom: 10px;
+  right: 15px;
   font-size: 20px;
   background-color: transparent;
   padding: 0;
   margin-bottom: 0;
 }
 .edit-btn{
+  position:absolute;
+  bottom: 3px;
+  left: 15px;
   font-size: 30px;
   background-color: transparent;
   color: var(--main-plum);
@@ -250,19 +258,28 @@ margin: 0 100px;
 /*------------ FAVE BREWS---------- */
 .fav-brews-container{
   background-image: url("../breweryTomfooleryPics/beerFlight3.jpg");
-  background-position: bottom;
+  background-position: top;
   background-repeat: no-repeat; 
   background-size: cover;
   background-attachment: fixed;
   overflow-y: scroll;
-  padding: 50px 50px;
   height: 100vh;
   width: 100vw;
-  max-width: 1400px;
+  max-width: 1500px;
 }
 
 /*------------ GLOBAL BREWS---------- */
-
+.global-brews-container{
+  background-image: url("../breweryTomfooleryPics/bottleCheers.jpg");
+  background-position: top;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  height: 100vh;
+  width: 100vw;
+  max-width: 1500px;
+}
 /*------------ SEARCH ---------- */
 
 .search{
@@ -270,11 +287,12 @@ margin: 0 100px;
   flex-direction: row;
   justify-content: center;
   align-self: center;
-  /* width: 500px; */
   margin: 0 auto;
   padding: 100px 0 20px 0;
   background-color: var(--main-gold);
-  max-width: 1600px;
+  width: 100vw;
+  max-width: 1500px;
+  overflow-y: none;
 }
 
 .search input, .search label{
@@ -283,19 +301,48 @@ margin: 0 100px;
   padding: 10px;
 }
 
+.search label{
+  color: var(--main-plum);
+  border-top: 2px solid var(--main-dark-gold);
+  border-bottom: 2px solid var(--main-dark-gold);
+}
+
 .search input{
   width: 300px;
   border-radius: 5px;
   border: none;
-  /* color: var(--main-dark-gold); */
   background-color: var(--main-white);
 }
 /*------------ Login-page ---------- */
 .login-page{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
   align-items: center;
 }
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.login-form label{
+  font-family: var(--abril-font);
+  font-size: 20px;
+  color: var(--main-plum);
+
+}
+.login-form input{
+  padding: 5px;
+  border: 2px solid var(--main-gold);
+  border-radius: 5px;
+}
+
+
 
 /*------------ Edit-Container ---------- */
 
@@ -305,32 +352,43 @@ margin: 0 100px;
   justify-content: center;
   height: 100vh;
   margin: 0 auto;
-  /* padding-top: 150px; */
+  overflow-y: scroll;
   width: 50vw;
   max-width: 1500px;
   background-color: var(--main-plum);
+  background-attachment: fixed;
 }
 
 .edit-form-container{
-  width: 30vw;
+  width: 40vw;
   max-width: 400px;
   background-color: var(--translucent-white);
 	backdrop-filter: blur(5px);
   border: solid var(--main-gold) 3px;
   border-radius: 5px;
 	padding: 30px;
-  margin: 0 auto;
+  margin: 80px auto 0;
   font-weight: bold;
+  overflow-y: scroll;
+}
+
+#edit-complete-msg{
+  margin-top: 10px;
+}
+#edit-complete-msg h3 {
+  color: var(--main-gold);
+}
+.return-to-myBrews{
+  border: 2px solid var(--main-white);
 }
 /* -----Hidden class --------- */
 .hidden {
   visibility: hidden;
 }
 
-/* .active{
-  font-weight: bold;
-  text-decoration: underline solid var(--main-dark-gold);
-} */
+.active{
+  text-decoration: underline solid var(--main-plum);
+}
 
 .favorited{
   background-color: var(--main-gold);

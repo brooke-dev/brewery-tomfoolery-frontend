@@ -58,7 +58,7 @@ function App() {
               <About />
             </Route>
             <Route exact path="/myBrews">
-              <Search search={search} setSearch={setSearch}/>
+              
               <MyBrews 
                 // filterMyBrewsCards={filterMyBrewsCards} 
                 search={search}
@@ -69,7 +69,7 @@ function App() {
               />              
             </Route>
             <Route path="/favorites">
-              <Search search={search} setSearch={setSearch}/>
+              
               <FavoriteBrews 
                 id={currentId} 
                 search={search} 
@@ -77,7 +77,6 @@ function App() {
               />
             </Route>
             <Route exact path="/globalBrews">
-              <Search search={search} setSearch={setSearch}/>
               <GlobalBrews 
                 currentId={currentId}
                 search={search}

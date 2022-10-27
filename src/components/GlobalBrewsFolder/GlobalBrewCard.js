@@ -24,6 +24,7 @@ const GlobalBrewCard = ({username, entry_id, name, image, location, description,
             setIsFavorited((isFavorited) => !isFavorited);
         }
     }
+    const favoritedClassName = isFavorited ? 'favorite-btn favorited' : 'favorite-btn';
 
     return (
         <div className='brew-card'>
@@ -31,7 +32,7 @@ const GlobalBrewCard = ({username, entry_id, name, image, location, description,
             <img src={image} alt={name} />
             <p>{description}</p>
             <p>{location}</p>
-            <button className='favorite-btn' onClick={handleFavorite}>{isFavorited ? "Favorited!" : "Add to Favorites"}</button>
+            <button className={favoritedClassName} onClick={handleFavorite}>{isFavorited ? "Favorited!" : "Add to Favorites"}</button>
             <p className='global-card-username'>Added by: {username}</p>
         </div>
 
