@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
 import GlobalBrewCard from './GlobalBrewCard';
 
 const GlobalBrewsList = ({currentId,search,setSearch}) => {
@@ -7,12 +6,21 @@ const GlobalBrewsList = ({currentId,search,setSearch}) => {
     const [favorites, setFavorites] = useState([]);
     const [users, setUsers] = useState([]);
 
+     //get usernames and associated id's  
+     useEffect(() => {
+        fetch(`http://localhost:9292/api/users`)
+        .then(res => res.json())
+        .then(data => {
+            setUsers(data)
+        })
+        .catch(console.error)
+    }, [])
+
     //get all entries
     useEffect(() => {
         fetch(`http://localhost:9292/api/entries`)
         .then(res => res.json())
         .then(data => {
-            // console.log(data)
             setSearch("")
             setBrews(data)
         })
@@ -27,17 +35,9 @@ const GlobalBrewsList = ({currentId,search,setSearch}) => {
             setFavorites(data)
         })
         .catch(console.error)
-    }, [])
+    }, [currentId])
 
-    //get usernames and associated id's  
-    useEffect(() => {
-        fetch(`http://localhost:9292/api/users`)
-        .then(res => res.json())
-        .then(data => {
-            setUsers(data)
-        })
-        .catch(console.error)
-    }, [])
+   
 
     //array of entry_ids from favorites list
     const favEntryIds = favorites.map(fav => {
@@ -54,17 +54,13 @@ const GlobalBrewsList = ({currentId,search,setSearch}) => {
         } else return false
     })
     
-    // console.log(brews)
-    // console.log(filterGlobalBrews)
-
-    console.log(users)
     const renderBrewCard = filterGlobalBrews.map((oneBrewsCard) => {
         const checkFavoritedId = favEntryIds.find(favId => favId === oneBrewsCard.id)
         const brewCard = users.find(user => user.id === oneBrewsCard.user_id)
-        const username = brewCard.username
+
         return (
             <GlobalBrewCard 
-                username={username}
+                userName={brewCard.username}
                 entry_id={oneBrewsCard.id} 
                 name={oneBrewsCard.name} 
                 image={oneBrewsCard.image_url} 

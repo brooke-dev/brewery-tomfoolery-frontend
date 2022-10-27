@@ -8,34 +8,14 @@ import Login from './components/Login';
 import FavoriteBrews from './components/FavoritesFolder/FavoriteBrews';
 import GlobalBrews from './components/GlobalBrewsFolder/GlobalBrews';
 import {Route, Switch} from 'react-router-dom';
-import React,{useState,useEffect} from 'react'
-// import BrewsList from './components/MyBrewsFolder/BrewsList';
-import Search from './components/Search';
+import React,{useState} from 'react';
 
 function App() {
   const [token, setToken] = useState(false);
   const [currentUser, setUser] = useState("");
   const [currentId, setCurrentId] = useState();
-  // const [myBrewsCards,setMyBrewsCards]=useState([])
   const [search, setSearch]=useState("")
   const [editFormData, setEditFormData] = useState({})
-
-  // useEffect(()=>{
-  //   fetch(`http://localhost:9292/api/entries/user/${currentId}`)
-  //   .then((res) =>res.json())
-  //   .then(setMyBrewsCards)
-  // },[currentId, editFormData])
-
-  // //Logic for deleting a brew:
-  // function handleDeleteBrew(id){
-  //   const updatedBrewArray=myBrewsCards.filter((oneMyBrewCard) => oneMyBrewCard.id !== id);
-  //   setMyBrewsCards(updatedBrewArray)
-  // }
-
-  // //Search bar logic for myBrews. Will need to make a filter for Favorites 
-  // const filterMyBrewsCards = myBrewsCards.filter((myBrewsCard) =>
-  // myBrewsCard.name.toLowerCase().includes(search.toLowerCase())
-  // )
 
   const handleLogOut = () => {
     setUser("");

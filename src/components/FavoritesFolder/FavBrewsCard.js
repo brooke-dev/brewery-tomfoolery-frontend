@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const FavBrewsCard = ({onDelete, favDetails}) => {
       //pass in id that is equal to entry_id in the favorite table in the backend
