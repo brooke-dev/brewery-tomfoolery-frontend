@@ -116,8 +116,32 @@ margin: 0 100px;
 
 .about-information img{
   height:200px;
+  width:200ox;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.about-photos{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
 
 }
+
+.about-information a{
+  text-decoration: none;
+  color:rgb(80, 73, 73)
+}
+
+.about-information{
+  display: grid;
+  justify-content: center;
+  flex-direction: row;
+  margin: 10px;
+}
+
 
 /* -------- HOME -------- */
 .home{
