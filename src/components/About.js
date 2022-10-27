@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Brooke_about from "../aboutImages/Brooke_about.jpg"
 
 const About = () => {
     return (
@@ -21,10 +22,19 @@ const About = () => {
             </p>
             
             {/* Change to using link and not a href!-Brooke */}
-            <div> <a href="https://www.linkedin.com/in/annaschmidt1697/" target="_blank">Anna <i className="fa-brands fa-linkedin" /></a> </div>
-            <div> <a href="https://www.linkedin.com/in/brooke-ross-se/" target="_blank" >Brooke <i className="fa-brands fa-linkedin" /></a> </div>
-            <div> <a href="https://www.linkedin.com/in/christopherding/" target="_blank" >Chris <i className="fa-brands fa-linkedin" /></a> </div>
-            <div> <a href="https://www.linkedin.com/in/justinsaborouh/" target="_blank" >Justin <i className="fa-brands fa-linkedin" /></a> </div>
+            <div className= "about-information"> 
+                <a href="https://www.linkedin.com/in/annaschmidt1697/" target="_blank">Anna <i className="fa-brands fa-linkedin" /></a> 
+            </div>
+            <div className="about-information"> 
+                <a href="https://www.linkedin.com/in/brooke-ross-se/" target="_blank" >Brooke <i className="fa-brands fa-linkedin" /></a> 
+                <img src= {Brooke_about} alt="Brooke"/>
+            </div>           
+            <div className="about-information"> 
+                <a href="https://www.linkedin.com/in/christopherding/" target="_blank" >Chris <i className="fa-brands fa-linkedin" /></a> 
+            </div>
+            <div className="about-information"> 
+                <a href="https://www.linkedin.com/in/justinsaborouh/" target="_blank" >Justin <i className="fa-brands fa-linkedin" /></a> 
+            </div>
         </div>
 
     )

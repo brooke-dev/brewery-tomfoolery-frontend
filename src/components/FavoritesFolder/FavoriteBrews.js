@@ -16,9 +16,14 @@ const FavoriteBrews = ({id,search,setSearch}) => {
       }, [id])
 
       //Search bar logic for favBrews
-      const filterFavBrewsCards = favorites.filter((oneFav) =>
-        oneFav.name.toLowerCase().includes(search.toLowerCase())
-      )
+      const filterFavBrewsCards = favorites.filter((oneFav) => {
+        if (oneFav.name.toLowerCase().includes(search.toLowerCase())){
+          return true
+        } else if(oneFav.location.toLowerCase().includes(search.toLowerCase())) {
+          return true
+        } else return false
+      })
+       
 
       //delete favorite from favorites list
       const handleDeleteFavorite = (id) => {

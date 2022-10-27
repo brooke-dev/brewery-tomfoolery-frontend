@@ -17,9 +17,17 @@ const MyBrews = ({search,setSearch,id,editFormData}) => {
       },[id, editFormData])
 
     //Search bar logic for myBrews.  
-    const filterMyBrewsCards = myBrewsCards.filter((myBrewsCard) =>
-    myBrewsCard.name.toLowerCase().includes(search.toLowerCase())
-    )
+    const filterMyBrewsCards = myBrewsCards.filter((myBrewsCard) => {
+    if (myBrewsCard.name.toLowerCase().includes(search.toLowerCase())){
+        return true
+    } else if (myBrewsCard.location.toLowerCase().includes(search.toLowerCase())){
+        return true
+    } else return false
+    })
+    
+
+
+
 
     //Logic for deleting a brew:
     function handleDeleteBrew(deleteId){
